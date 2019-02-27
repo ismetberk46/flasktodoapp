@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block body  %}
+{% if users == [] %}
+<div class="alert alert-warning" role="alert">
+        Herhangi bir todonuz bulunmuyor...
+</div>
+
+{% else %}
+<table class="table">
+        <thead>
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Durum</th>
+            <th scope="col">Durum Güncelle</th>
+            <th scope="col">Todo Sil</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for article in articles %}
+            <tr>
+                    <th scope="row">{{article.id}}</th>
+                    <td>{{article.title}}</td>
+                    <td>{{article.content}}</td>
+                    <td>{{article.article_time}}</td>
+                    {% if article.yayinla == False %}
+                    <td>Yayınlanmadı</td>
+                    
+                    {% else %}
+                    <td>Yayınlandı</td>
+                    {% endif %}
+                    
+                    <td><a href="/yayinla/{{article.id}}" class = "btn btn-danger">Yayınla</a></td>
+                    <td><a href="/delete/{{article.id}}" class = "btn btn-danger">Sil</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+{% endif %}
+{% endblock  %}

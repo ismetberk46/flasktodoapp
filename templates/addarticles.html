@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Makale Oluştur</h3>
+<hr>
+
+<form action = "/addarticles" method = "post">
+    <div class="form-group">
+            <label for="formGroupExampleInput"><h4>Konu Başlığı</h4></label>
+            <input type="text" class="form-control" name = "title" id="formGroupExampleInput" placeholder="Konu Başlığı"><br>
+
+            <label for="formGroupExampleInput"><h4>Makale</h4></label>
+            <textarea cols="80" id="editor1" name="content" rows="10">
+            </textarea>
+              <button type = "submit" class = "btn btn-danger float-right">Ekle</button>
+    </div>
+    <hr>              
+</form>        
+{% endblock body %}
